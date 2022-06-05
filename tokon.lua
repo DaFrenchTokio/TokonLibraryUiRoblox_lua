@@ -182,7 +182,7 @@ function Library_Tokon:SpawnMain(titlemain)
     end
     coroutine.wrap(WKIUWKJ_fake_script)()
     local libraryfunctions = {}
-    function libraryfunctions:notification(title, msg)
+    function libraryfunctions:Notification(title, msg)
         game.StarterGui:SetCore("SendNotification", {
             Title = title; 
             Text = msg;
