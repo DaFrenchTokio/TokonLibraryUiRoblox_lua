@@ -144,11 +144,11 @@ function Library_Tokon:SpawnMain(titlemain)
 		    main.frame:TweenPosition(UDim2.new(main.frame_x, 0, 1, 0))
 		    repeat wait() until main.frame:TweenPosition(UDim2.new(main.frame_x, 0, 1, 0))
 		    main.frame.Visible = false
-            game.StarterGui:SetCore("SendNotification", {
-                Title = titlemain; 
-                Text = "Press 'v' for open gui";
-                Duration = 5;
-            })
+            	    game.StarterGui:SetCore("SendNotification", {
+                        Title = titlemain; 
+                        Text = "Press 'v' for open gui";
+                        Duration = 5;
+                    })
 	    end)
     end
     coroutine.wrap(WNFQCPK_fake_script)()
