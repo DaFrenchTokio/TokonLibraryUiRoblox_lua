@@ -204,7 +204,7 @@ function Library_Tokon:SpawnMain(titlemain)
             TextLabel.Parent = Center
             TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
             TextLabel.BackgroundTransparency = 1.000
-            TextLabel.Position = UDim2.new(135, 0, 30, 0)
+            TextLabel.Position = UDim2.new(170, 0, 30, 0)
             TextLabel.Size = UDim2.new(0, 100, 0, 50)
             TextLabel.Font = Enum.Font.TitilliumWeb
             TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
