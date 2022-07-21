@@ -251,6 +251,9 @@ function lib:SpawnMain(title_spawnmain, version_spawnmain)
             mod.Value = "None"
             mod:Set(mod.Value)
         end
+        function mod:EventButton_main_fset(newState)
+            mod.EventButton = newState
+        end
         local lib_textbox = {
             TextBox = Instance.new("TextButton"),
             UICorner_7 = Instance.new("UICorner"),
@@ -357,6 +360,7 @@ function lib:SpawnMain(title_spawnmain, version_spawnmain)
                 lib_notification_textbox.Execute.TextSize = 14.000
                 lib_notification_textbox.Execute.Text = execute_text
                 mod.EventButton = lib_notification_textbox.Execute
+                mod:EventButton_main_fset(lib_notification_textbox.Execute)
                 lib_notification_textbox.UICorner_3.Parent = lib_notification_textbox.Execute
                 lib_notification_textbox.ImageButton.Parent = lib_notification_textbox.Frame
                 lib_notification_textbox.ImageButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
