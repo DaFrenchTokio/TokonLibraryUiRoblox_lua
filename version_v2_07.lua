@@ -237,23 +237,6 @@ function lib:SpawnMain(title_spawnmain, version_spawnmain)
         end
     end
     function functions:SpawnTextBox(text, category, execute_text)
-        local mod = {
-            EventButton = "None",
-            Value = "None"
-        }
-        function mod:Set(newState)
-            mod.Value = newState
-            if mod.Value == "" then
-                mod.Value = "None"
-            end
-        end
-        function mod:Reset()
-            mod.Value = "None"
-            mod:Set(mod.Value)
-        end
-        function mod:EventButton_main_fset(newState)
-            mod.EventButton = newState
-        end
         local lib_textbox = {
             TextBox = Instance.new("TextButton"),
             UICorner_7 = Instance.new("UICorner"),
@@ -309,6 +292,20 @@ function lib:SpawnMain(title_spawnmain, version_spawnmain)
                     UICorner_3 = Instance.new("UICorner"),
                     ImageButton = Instance.new("ImageButton")
                 }
+                local mod = {
+                    EventButton = lib_notification_textbox.Execute,
+                    Value = "None"
+                }
+                function mod:Set(newState)
+                    mod.Value = newState
+                    if mod.Value == "" then
+                        mod.Value = "None"
+                    end
+                end
+                function mod:Reset()
+                    mod.Value = "None"
+                    mod:Set(mod.Value)
+                end
                 lib_notification_textbox.Frame.Name = hidename()
                 lib_notification_textbox.Frame.Parent = lib_instance.main
                 lib_notification_textbox.Frame.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -359,8 +356,6 @@ function lib:SpawnMain(title_spawnmain, version_spawnmain)
                 lib_notification_textbox.Execute.TextColor3 = Color3.fromRGB(255, 255, 255)
                 lib_notification_textbox.Execute.TextSize = 14.000
                 lib_notification_textbox.Execute.Text = execute_text
-                mod.EventButton = lib_notification_textbox.Execute
-                mod:EventButton_main_fset(lib_notification_textbox.Execute)
                 lib_notification_textbox.UICorner_3.Parent = lib_notification_textbox.Execute
                 lib_notification_textbox.ImageButton.Parent = lib_notification_textbox.Frame
                 lib_notification_textbox.ImageButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -404,8 +399,8 @@ function lib:SpawnMain(title_spawnmain, version_spawnmain)
                     mod.Value = tostring(lib_notification_textbox.TextBox.Text)
                     mod:Set(mod.Value)
                 end)
+                return mod
             end)
-            return mod
         else
             print('Error | No category named '..category)
         end
