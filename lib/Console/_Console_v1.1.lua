@@ -21,6 +21,9 @@ function lib:SpawnConsole()
     v.main.BackgroundTransparency = 0.300
     v.main.Position = UDim2.new(0.899999976, 0, 0.349999994, 0)
     v.main.Size = UDim2.new(0, 200, 0, 350)
+    v.main.Selectable = true
+    v.main.Draggable = true
+    v.main.Active = true
     v.UICorner.Parent = v.main
     v.Close.Name = "v.Close"
     v.Close.Parent = v.main
@@ -93,9 +96,9 @@ function lib:SpawnConsole()
             end
         end
         local counttc = 0
-        for i,v in pairs(v.printer:GetChildren()) do
+        for i,tt in pairs(v.printer:GetChildren()) do
             if tt.Name == "txt" then
-                counttc = counttc + 0.25
+                counttc = counttc + 0.1
             end
         end
         v.scroll.CanvasSize = UDim2.new(0, 0, counttc + 2, 0)
@@ -105,10 +108,8 @@ function lib:SpawnConsole()
         zx.BackgroundTransparency = 1.000
         if tc == 0 then
             zx.Position = UDim2.new(12.0600586, 0, 0, 0)
-        elseif tc == 1 then
-            zx.Position = UDim2.new(12.0600586, 0, 30, 0)
         else
-            zx.Position = UDim2.new(12.0600586, 0, (tc * 30) + 30, 0)
+            zx.Position = UDim2.new(12.0600586, 0, (tc * 30), 0)
         end
         zx.Size = UDim2.new(0, 175, 0, 30)
         zx.Font = Enum.Font.Roboto
