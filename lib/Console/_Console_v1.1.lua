@@ -85,7 +85,6 @@ function lib:SpawnConsole()
     task.spawn(function()
         animate()
     end)
-    print('Loaded Console')
     local vv = {}
     function vv:addtxt(t)
         local zx = Instance.new("TextLabel")
