@@ -58,16 +58,16 @@ function lib:SpawnConsole()
     v.print.TextColor3 = Color3.fromRGB(0, 0, 0)
     v.print.TextSize = 14.000
     v.print.TextTransparency = 1.000
-    v.Close.Parent.MouseButton1Click:Connect(function()
-        local anim = game:GetService("TweenService"):Create(v.Close.Parent.Parent, TweenInfo.new(.5), {
+    v.Close.MouseButton1Click:Connect(function()
+        local anim = game:GetService("TweenService"):Create(v.Close.Parent, TweenInfo.new(.5), {
             Position = UDim2.new(1.1, 0,0.35, 0)
         })
         anim:Play()
-        repeat wait() until v.Close.Parent.Parent.Position == UDim2.new(1.1, 0,0.35, 0)
-        v.Close.Parent.Parent.Parent:Destroy()
+        repeat wait() until v.Close.Parent.Position == UDim2.new(1.1, 0,0.35, 0)
+        v.Close.Parent.Parent:Destroy()
     end)
-    local v = v.Title.Parent
-    local g = v.UIGradient
+    local jzv = v.Title
+    local g = jzv.UIGradient
     local ti = TweenInfo.new(5, Enum.EasingStyle.Circular, Enum.EasingDirection.Out)
     local o = {Offset = Vector2.new(1, 0)}
     local c = game:GetService("TweenService"):Create(g, ti, o)
@@ -79,7 +79,9 @@ function lib:SpawnConsole()
         g.Offset = s
         animate()
     end
-    animate()
+    task.spawn(function()
+        animate()
+    end)
     local vv = {}
     function vv:print(t)
         zx = Instance.new("TextLabel")
