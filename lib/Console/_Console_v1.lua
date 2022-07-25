@@ -84,7 +84,7 @@ function lib:SpawnConsole()
     end)
     local vv = {}
     function vv:print(t)
-        zx = Instance.new("TextLabel")
+        local zx = Instance.new("TextLabel")
         local tc = 0
         for i,tt in pairs(v.print:GetChildren()) do
             if tt.Name == "txt" then
