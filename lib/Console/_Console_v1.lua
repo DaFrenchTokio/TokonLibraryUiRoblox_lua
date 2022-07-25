@@ -36,7 +36,7 @@ function lib:SpawnConsole()
     v.Title.BackgroundTransparency = 1.000
     v.Title.Size = UDim2.new(0, 125, 0, 50)
     v.Title.Font = Enum.Font.SourceSans
-    v.Title.Text = "v.Console"
+    v.Title.Text = "Console"
     v.Title.TextColor3 = Color3.fromRGB(255, 255, 255)
     v.Title.TextSize = 25.000
     v.Title.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
@@ -82,8 +82,9 @@ function lib:SpawnConsole()
     task.spawn(function()
         animate()
     end)
+    print('Loaded Console')
     local vv = {}
-    function vv:print(t)
+    function vv:addtxt(t)
         local zx = Instance.new("TextLabel")
         local tc = 0
         for i,tt in pairs(v.print:GetChildren()) do
